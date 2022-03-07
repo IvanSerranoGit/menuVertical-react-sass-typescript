@@ -1,24 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {SideBarMenu} from "./components/SideBarMenu";
+import { SideBarMenuCard, SideBarMenuItem } from './types/types';
+import {FcTwoSmartphones, FcBriefcase, FcServices  } from "react-icons/fc";
+import profileImage from './93792446_10158273533988631_8999942237479501824_n.jpeg';
 
 function App() {
+  const items: SideBarMenuItem[] = [
+     {
+       id:'1',
+       label:'Servicios',
+       icon: FcServices,
+       url:"/",
+     },
+     {
+      id:'2',
+      label:'Proyectos',
+      icon: FcBriefcase,
+      url:"/",
+    },
+    {
+      id:'3',
+      label:'Contacto',
+      icon: FcTwoSmartphones,
+      url:"/",
+    },
+  ];
+  const card: SideBarMenuCard = {
+    id: 'card01',
+    displayName: 'Iván Serrano',
+    title: 'Enginner',
+    photo: profileImage,
+    url:"/",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SideBarMenu items={items} card={card}/>
     </div>
   );
 }
